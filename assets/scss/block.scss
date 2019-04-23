@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// breakpoints map
+$breakpoints: (xs: 32rem,
+sm: 48rem,
+md: 72rem,
+lg: 96rem,
+xl: 102rem,
+xx: 120rem);
+
+$tabheadercolors: (batmanTabLink: #484848,
+supermanTabLink: #E20025,
+greenLanternTabLink: #067A52,
+flashTabLink: #A51818,
+contactTabLink: #5678AA,
+);
+
+$tabbgcolors: (batmanTab: #484848,
+supermanTab: #E20025,
+greenLanternTab: #067A52,
+flashTab: #A51818,
+contactTab: #5678AA,
+);
+
+$tablinkcolors: (batmanTabLink: #FFF200,
+supermanTabLink: #FFED10,
+greenLanternTabLink: #FFFFFB,
+flashTabLink:#DDDF3B,
+contactTabLink: #e4DF6C,
+);
+
+// media query mixin
+@mixin break($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// number of columns variable
+$items: 12;
+
+// grid container
+.grid {
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1rem;
+}
+
+// grid item
+.grid__item {
+  padding: 0.5rem;
+  background-color: $backGroundColor;
+  border: #323232 1px solid;
+}
+
+// loop over the breakpoints
+@each $key,
+$value in $breakpoints {
+  @for $i from 1 through $items {
+    .grid_#{$key}_#{$i} {
+      flex: 0 0 100%;
+      @include break($key) {
+        flex: 0 0 #{$i / $items * 100%};
+      }
+    }
+  }
+}
+
+@each $key,$value in $tabheadercolors {
+  ##{$key} {
+    &:hover {
+      background-color: $value;
+    }
+    &.active
+    {
+      background-color: $value;      
+    }
+  }
+}
+@each $key,$value in $tabbgcolors {
+  ##{$key} {
+    background-color: $value;
+  }
+}
+@each $key,$value in $tablinkcolors {
+  ##{$key} .nav-link {
+    &:hover {
+      color: $value;
+    }    
+  }
+  ##{$key}  {
+    &.active{
+      color: $value;      
+    }
+  }
+}

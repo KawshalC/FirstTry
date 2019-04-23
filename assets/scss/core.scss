@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  font-family: 'robotoLight';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $navFontColor;
+  background-color: #fff;
+}
+.grid
+{
+  width: 100%;
+  padding: 0 15px;  
+}
+.slider-nav
+{
+  box-sizing: border-box;
+  right: 0;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background-color:  rgba(255,255,255,0.8);
+
+  .navbar {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    border-radius: 0;
+    left: 0;
+    top: 0;
+  
+    #navigationDivision {
+      padding-left: 25px;
+      box-sizing: border-box;
+      align-items: center;
+  
+      .navbar-brand {
+        position: relative;
+        background: transparent;
+        width: auto;
+        justify-content: center;
+        display: flex;
+        float: left;
+        height: 80px;
+        align-items: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        
+        #navbar-icon
+        {
+          display: inline-block;
+          height: 60px;
+          width: 60px;
+          background-image: url("../images/batman_icon.png");
+          background-size: 60px 60px;
+          background-repeat: no-repeat;
+          margin: 6px 10px; 
+        }  
+        #navbar-title
+        {
+          font-family: 'robotoLight';
+          font-size: 2rem;
+        }
+      }
+  
+      #tmNavbar {
+        position: static;
+        right: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        display: block;
+        float: right;
+
+        .navbar-nav {
+          list-style-type: none;
+          list-style-position: outside;
+          list-style-image: none;
+          display: flex;
+          margin: 0;
+          padding: 0;
+          font-size: 1.25rem;
+  
+          .nav-item {
+            box-sizing: border-box;
+            display: block;
+            padding: 0px 15px;   
+            cursor: pointer;         
+
+            .nav-link
+            {
+              display: table-cell;
+              height: 80px;
+              position: relative;
+              box-sizing: border-box;
+              vertical-align: middle;                             
+            }
+          }
+        }
+      }  
+    }
+  }
+}
+#container {
+  position: relative;
+}
+.tabContainer {
+  padding-top: 80px;
+  position: absolute;
+  left: 0;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: -1;
+	display: none;
+}
+.tabContainer.current {
+	z-index: 2;
+	display: block;
+}
+.tabContainer.exit {
+	z-index: 2;
+	display: block;
+}
+.tabContainer.enter {
+  z-index: 2;
+	display: block;
+}
+.animating {
+	.exit {
+		-webkit-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
+	}
+	.enter {
+		-webkit-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
+	}
+	.exit.slideleft {
+		-webkit-transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+	.enter.slideleft {
+		-webkit-transform: translateX(0%);
+		-ms-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+	.enter.fade {
+		opacity: 1;
+	}
+	.exit.fade {
+		opacity: 0;
+	}
+}
+.exit.slideleft {
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+.enter.slideleft {
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.enter.fade {
+	opacity: 0;
+}
+.exit.fade {
+	opacity: 1;
+}
+.animating[data-concurrent="no"] {
+	.panel.enter {
+		-webkit-transition-delay: .3s !important;
+		-ms-transition-delay: .3s !important;
+		transition-delay: .3s !important;
+	}
+}
+.animating[data-sequential="yes"] {
+	.panel.enter {
+		-webkit-transition-delay: .3s !important;
+		-ms-transition-delay: .3s !important;
+		transition-delay: .3s !important;
+	}
+}

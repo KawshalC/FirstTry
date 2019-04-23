@@ -1,0 +1,22 @@
+
+$backGroundColor:rgb(51, 201, 143);
+$navFontColor:rgb(44, 44, 44);
+$baseFontColor:rgb(236, 236, 236);
+$padding: 6px;
+$baseFontHeight: 1.15;
+$baseFontSize: 1 rem;
+
+
+@font-face {
+    font-family: 'roboto';
+    src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'robotoBold';
+    src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'robotoLight';
+    src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
+}
